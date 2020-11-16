@@ -19,24 +19,9 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
-public class Main extends Application
+public class Main
 {
 	static boolean debug = false;	//this can be enabled through user input and will activate some debug printing
-	@Override
-	public void start(Stage primaryStage)
-	{
-		try
-		{
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root, 400, 400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.show();
-		} catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
 
 	public static void main(String[] args)
 	{
@@ -47,7 +32,11 @@ public class Main extends Application
 			System.out.println("Enter an English word for which you want the phonetic version: \tOr, type '!EXIT' to exit.\nType !DEBUG to toggle debug mode.");
 			input = consoleScanner.nextLine();
 			
-			if(input.equals("!DEBUG"))
+			if(input.equals("!EXIT")) 
+			{
+				break;
+			}
+			else if(input.equals("!DEBUG"))
 			{
 				debug = !debug;
 				
